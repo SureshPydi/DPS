@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Alert";
+    Layout = "~/Views/Shared/_LayoutDPSMaster.cshtml";
+}
+
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+</hgroup>
+<div>
+    <p id="successAlert" class="text-success">
+        @TempData["TempAlert"].
+    </p>
+
+    <p id="failAlert" class="text-danger">
+        @TempData["TempAlert"].
+    </p>
+</div>

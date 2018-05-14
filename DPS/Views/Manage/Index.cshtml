@@ -1,0 +1,61 @@
+﻿@model DPS.Models.IndexViewModel
+@{
+    ViewBag.Title = "Manage Profile";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+<div class="container-fluid">
+    <h4>Change your account settings</h4>
+    <div id="EditModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button data-dismiss="modal" class="close"><span>&times;</span></button>
+                    <div class="modal-title"><h3>Edit User Details</h3></div>
+                </div>
+                <div class="modal-body">
+                    123
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary">Submit</button>
+                    <button class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>User ID:</dt>
+        <dd>
+            @Model.UserLoginName
+        </dd>
+        <dt>Display Name:</dt>
+        <dd>
+            @Model.FirstName, @Model.LastName <span class="tab-space"></span> [ @Html.ActionLink("Edit", "ChangeDisplayName") ]
+
+            Test Link, Ignore: @Html.ActionLink("Edit", "ChangeDisplayName", new { id = "" }, new { @data_toggle = "modal", @data_target = "#EditModal" })
+
+        </dd>
+        <dt>Email Address:</dt>
+        <dd>
+            @Model.Email <span class="tab-space"></span> [ @Html.ActionLink("Edit", "ChangeEmail") ]
+        </dd>
+        <dt>Password:</dt>
+        <dd>
+            [
+            @if (Model.HasPassword)
+            {
+                @Html.ActionLink("Change your password", "ChangePassword")
+            }
+            else
+            {
+                @Html.ActionLink("Create", "SetPassword")
+            }
+            ]
+        </dd>
+    </dl>
+</div>

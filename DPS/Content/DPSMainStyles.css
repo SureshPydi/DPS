@@ -1,0 +1,175 @@
+﻿body {
+    padding-top: 71px;
+}
+/* bootstrap customizations */
+.navbar-default {
+    background-image: linear-gradient(to bottom, rgb(116, 116, 116) 0px, rgb(0, 0, 0) 100%);
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: rgb(200, 200, 200);
+}
+
+.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+    color: white;
+    background-color: #777777;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
+    background-color: transparent !important;
+    color: white !important;
+    background-color: #777777 !important;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .open > a {
+    background-image: linear-gradient(to bottom, rgb(0, 0, 0) 0, rgb(116, 116, 116) 100%);
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+    color: #F7CF3C;
+}
+
+.navbar-brand {
+    padding: 5px 5px;
+    padding-left: 25px !important;
+}
+/* form validation styles */
+.ng-invalid:not(form):not(.ng-untouched) {
+    border: 1px solid #a94442;
+}
+/* draggable styles */
+.table-hover tbody tr:not([draggable=true]) {
+    cursor: pointer;
+}
+
+[draggable=true] {
+    cursor: move;
+}
+
+[draggable=true]:hover {
+    background-color: #f5f5f5;
+}
+
+/* facility indicator styles */
+.facility, .panel-default > .panel-heading .badge.facility {
+    background-color: rgb(119, 119, 119);
+}
+
+.facility.communication, .panel-default > .panel-heading .badge.facility.communication {
+    background-color: #f09127;
+}
+
+.facility.electric, .panel-default > .panel-heading .badge.facility.electric {
+    background-color: #f03337;
+}
+
+.facility.gas, .panel-default > .panel-heading .badge.facility.gas {
+    background-color: #edd734;
+}
+
+.facility.reclaimed-water, .panel-default > .panel-heading .badge.facility.reclaimed-water {
+    background-color: #a13a8d;
+}
+
+.facility.sewer, .panel-default > .panel-heading .badge.facility.sewer {
+    background-color: #058a5d;
+}
+
+.facility.temporary, .panel-default > .panel-heading .badge.facility.temporary {
+    background-color: #ed97be;
+}
+
+.facility.water, .panel-default > .panel-heading .badge.facility.water {
+    background-color: #484da8;
+}
+
+/* table data styles */
+.no-wrap {
+    white-space: nowrap;
+}
+
+.navbar-text {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.navbar-right {
+    margin-right: 0px !important;
+}
+
+.glyphicon-user {
+    padding-top: 15px !important;
+}
+
+.dropdown-toggle {
+    background-color: transparent;
+    border-color: transparent;
+    font-size: 14px;
+    padding: 15px;
+}
+
+#nav-menu.dropdown-toggle{
+    color: #c8c8c8;
+}
+
+#nav-menu.dropdown-toggle > a, .glyphicon-user {
+    color: #c8c8c8;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+#nav-menu.dropdown-toggle:focus, button#nav-menu.dropdown-toggle:hover {
+        background-color: #777777;
+        border-color: #777777;
+    }
+
+.caret {
+    border-top-color: #c8c8c8 !important;
+    border-bottom-color: #c8c8c8 !important;
+}
+
+.dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover {
+    background-color: #4b4a4a !important;
+    border-color: #f5f5f5 !important;
+    color: #fff !important;
+}
+
+/*dl.dl-horizontal > dd, dl.dl-horizontal > dt {
+    padding: 5px !important;
+}*/
+
+dl {
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+dt {
+    float: left;
+    width: 50%;
+    padding: 5px;
+    margin: 0
+}
+
+dd {
+    float: left;
+    width: 50%;
+    padding: 5px;
+    margin: 0;
+    margin-left: 50px !important;
+}
+
+.tab-space {
+    padding-left: 1em;
+}
+
+.footer {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background-color: #f5f5f5;
+}
+

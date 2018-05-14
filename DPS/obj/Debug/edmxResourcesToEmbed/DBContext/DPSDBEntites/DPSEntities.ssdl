@@ -1,0 +1,627 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DPSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Attachments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReportVersionId" Type="int" Nullable="false" />
+    <Property Name="FileName" Type="nvarchar(max)" />
+    <Property Name="MediaType" Type="nvarchar(max)" />
+    <Property Name="FilePath" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Contacts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleId" Type="int" />
+    <Property Name="PhoenixContactID" Type="int" />
+    <Property Name="ImisId" Type="nvarchar(max)" />
+    <Property Name="ImisCompanyId" Type="nvarchar(max)" />
+    <Property Name="FirstName" Type="nvarchar(max)" />
+    <Property Name="LastName" Type="nvarchar(max)" />
+    <Property Name="CompanyName" Type="nvarchar(max)" />
+    <Property Name="EmailAddress" Type="nvarchar(max)" />
+    <Property Name="WorkPhoneNumber" Type="nvarchar(max)" />
+    <Property Name="MobilePhoneNumber" Type="nvarchar(max)" />
+    <Property Name="HomePhoneNumber" Type="nvarchar(max)" />
+    <Property Name="FaxNumber" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Coordinates">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReportVersionId" Type="int" Nullable="false" />
+    <Property Name="Latitude" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Longitude" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EventImpacts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReportVersionId" Type="int" Nullable="false" />
+    <Property Name="Was911Called" Type="bit" Nullable="false" />
+    <Property Name="NameOfPersonCalling911" Type="nvarchar(max)" />
+    <Property Name="DidFireRespond" Type="bit" Nullable="false" />
+    <Property Name="DidPoliceRespond" Type="bit" Nullable="false" />
+    <Property Name="WasEvacuationNecessary" Type="bit" Nullable="false" />
+    <Property Name="HowManyEvacuated" Type="int" Nullable="false" />
+    <Property Name="WasTrafficStopped" Type="bit" Nullable="false" />
+    <Property Name="WasServiceInterrupted" Type="bit" Nullable="false" />
+    <Property Name="DurationOfServiceInterruption" Type="nvarchar(max)" />
+    <Property Name="NumberOfCustomersAffected" Type="int" Nullable="false" />
+    <Property Name="NumberOfFatalities" Type="int" Nullable="false" />
+    <Property Name="NumberOfInjuries" Type="int" Nullable="false" />
+    <Property Name="CostForDamageRepair" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="WasOtherPropertyImpacted" Type="bit" Nullable="false" />
+    <Property Name="OtherPropertyImpacted" Type="nvarchar(max)" />
+    <Property Name="CostOfOtherPropertyRepair" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ExcavationWork">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReportVersionId" Type="int" Nullable="false" />
+    <Property Name="ExcavatorId" Type="int" />
+    <Property Name="WorkBeginDate" Type="datetime" Nullable="false" />
+    <Property Name="WasWhiteLined" Type="bit" Nullable="false" />
+    <Property Name="Type" Type="nvarchar(max)" />
+    <Property Name="Method" Type="nvarchar(max)" />
+    <Property Name="Equipment" Type="nvarchar(max)" />
+    <Property Name="WorkBeingDoneFor" Type="nvarchar(max)" />
+    <Property Name="KarlMethodCode" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Exemptions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="nvarchar(max)" />
+    <Property Name="Reason" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="FacilityLineInvolvements">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReportVersionId" Type="int" Nullable="false" />
+    <Property Name="FacilityType" Type="nvarchar(max)" />
+    <Property Name="Facility" Type="nvarchar(max)" />
+    <Property Name="PartOfJointTrench" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="InvolvedCrossBore" Type="bit" Nullable="false" />
+    <Property Name="MeasuredDepthFromGrade" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Folders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="OwnedByUserName" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Groups">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Permissions" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LocatingInformation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReportVersionId" Type="int" Nullable="false" />
+    <Property Name="LocatorId" Type="int" />
+    <Property Name="FacilityLineLocatorType" Type="nvarchar(max)" />
+    <Property Name="WasLineMarked" Type="bit" Nullable="false" />
+    <Property Name="TypesOfMarksPresent" Type="nvarchar(max)" />
+    <Property Name="WereOffsetMarkingsUsed" Type="bit" Nullable="false" />
+    <Property Name="ConditionOfMarks" Type="nvarchar(max)" />
+    <Property Name="WereFacilitiesVisible" Type="bit" Nullable="false" />
+    <Property Name="WhatMeterEtc" Type="nvarchar(max)" />
+    <Property Name="TypeOfLocatingEquipment" Type="nvarchar(max)" />
+    <Property Name="LocatorUsedOperatorRecords" Type="bit" Nullable="false" />
+    <Property Name="LocatorRecordType" Type="nvarchar(max)" />
+    <Property Name="MarkedAccordingToCGABestPractices" Type="bit" Nullable="false" />
+    <Property Name="LocatorPaidForm408" Type="bit" Nullable="false" />
+    <Property Name="Comments" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Reasons">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReportVersionId" Type="int" Nullable="false" />
+    <Property Name="IssueType" Type="nvarchar(max)" />
+    <Property Name="Code" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="EnforcementArea" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Reports">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AssignedToUserName" Type="nvarchar" MaxLength="100" />
+    <Property Name="AssignedToUserFolderId" Type="int" />
+    <Property Name="Number" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsArchived" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ReportVersions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReportId" Type="int" Nullable="false" />
+    <Property Name="AgentRoleId" Type="int" />
+    <Property Name="ExemptionId" Type="int" />
+    <Property Name="SiteId" Type="int" />
+    <Property Name="SubmitterId" Type="int" />
+    <Property Name="Version" Type="int" />
+    <Property Name="AllegedViolationDate" Type="datetime" />
+    <Property Name="ReportDate" Type="datetime" />
+    <Property Name="DamageSerialNumber" Type="nvarchar" MaxLength="32" />
+    <Property Name="DamageVersion" Type="int" />
+    <Property Name="OriginalSerialNumber" Type="nvarchar" MaxLength="32" />
+    <Property Name="OriginalVersion" Type="int" />
+    <Property Name="IsAgent" Type="bit" Nullable="false" />
+    <Property Name="Summary" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="PrimaryType" Type="nvarchar(max)" />
+    <Property Name="SubType" Type="nvarchar(max)" />
+    <Property Name="QualifiedRoleCode" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="SerialNumbers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReportVersionId" Type="int" Nullable="false" />
+    <Property Name="Number" Type="nvarchar(max)" />
+    <Property Name="Version" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SiteRows">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PrimaryType" Type="nvarchar(max)" />
+    <Property Name="SubType" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Sites">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SiteRowId" Type="int" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="Municipality" Type="nvarchar(max)" />
+    <Property Name="City" Type="nvarchar(max)" />
+    <Property Name="State" Type="nvarchar(max)" />
+    <Property Name="County" Type="nvarchar(max)" />
+    <Property Name="NearestIntersection" Type="nvarchar(max)" />
+    <Property Name="SecondNearestIntersection" Type="nvarchar(max)" />
+    <Property Name="Ward" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="UserGroupMembership">
+    <Key>
+      <PropertyRef Name="GroupId" />
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="GroupId" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="UserName" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Attachments_ReportVersions_ReportVersionId">
+    <End Role="ReportVersions" Type="Self.ReportVersions" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Attachments" Type="Self.Attachments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportVersions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Attachments">
+        <PropertyRef Name="ReportVersionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contacts_Roles_RoleId">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
+    <End Role="Contacts" Type="Self.Contacts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Contacts">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Coordinates_ReportVersions_ReportVersionId">
+    <End Role="ReportVersions" Type="Self.ReportVersions" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Coordinates" Type="Self.Coordinates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportVersions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Coordinates">
+        <PropertyRef Name="ReportVersionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventImpacts_ReportVersions_ReportVersionId">
+    <End Role="ReportVersions" Type="Self.ReportVersions" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="EventImpacts" Type="Self.EventImpacts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportVersions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventImpacts">
+        <PropertyRef Name="ReportVersionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExcavationWork_Contacts_ExcavatorId">
+    <End Role="Contacts" Type="Self.Contacts" Multiplicity="0..1" />
+    <End Role="ExcavationWork" Type="Self.ExcavationWork" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contacts">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ExcavationWork">
+        <PropertyRef Name="ExcavatorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExcavationWork_ReportVersions_ReportVersionId">
+    <End Role="ReportVersions" Type="Self.ReportVersions" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ExcavationWork" Type="Self.ExcavationWork" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportVersions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ExcavationWork">
+        <PropertyRef Name="ReportVersionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FacilityLineInvolvements_ReportVersions_ReportVersionId">
+    <End Role="ReportVersions" Type="Self.ReportVersions" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FacilityLineInvolvements" Type="Self.FacilityLineInvolvements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportVersions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FacilityLineInvolvements">
+        <PropertyRef Name="ReportVersionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Folders_Users_OwnedByUserName">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Folders" Type="Self.Folders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserName" />
+      </Principal>
+      <Dependent Role="Folders">
+        <PropertyRef Name="OwnedByUserName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LocatingInformation_Contacts_LocatorId">
+    <End Role="Contacts" Type="Self.Contacts" Multiplicity="0..1" />
+    <End Role="LocatingInformation" Type="Self.LocatingInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contacts">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LocatingInformation">
+        <PropertyRef Name="LocatorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LocatingInformation_ReportVersions_ReportVersionId">
+    <End Role="ReportVersions" Type="Self.ReportVersions" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="LocatingInformation" Type="Self.LocatingInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportVersions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LocatingInformation">
+        <PropertyRef Name="ReportVersionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reasons_ReportVersions_ReportVersionId">
+    <End Role="ReportVersions" Type="Self.ReportVersions" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Reasons" Type="Self.Reasons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportVersions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Reasons">
+        <PropertyRef Name="ReportVersionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reports_Folders_AssignedToUserFolderId">
+    <End Role="Folders" Type="Self.Folders" Multiplicity="0..1" />
+    <End Role="Reports" Type="Self.Reports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Folders">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Reports">
+        <PropertyRef Name="AssignedToUserFolderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reports_Users_AssignedToUserName">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Reports" Type="Self.Reports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserName" />
+      </Principal>
+      <Dependent Role="Reports">
+        <PropertyRef Name="AssignedToUserName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReportVersions_Contacts_SubmitterId">
+    <End Role="Contacts" Type="Self.Contacts" Multiplicity="0..1" />
+    <End Role="ReportVersions" Type="Self.ReportVersions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contacts">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ReportVersions">
+        <PropertyRef Name="SubmitterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReportVersions_Exemptions_ExemptionId">
+    <End Role="Exemptions" Type="Self.Exemptions" Multiplicity="0..1" />
+    <End Role="ReportVersions" Type="Self.ReportVersions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Exemptions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ReportVersions">
+        <PropertyRef Name="ExemptionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReportVersions_Reports_ReportId">
+    <End Role="Reports" Type="Self.Reports" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ReportVersions" Type="Self.ReportVersions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Reports">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ReportVersions">
+        <PropertyRef Name="ReportId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReportVersions_Roles_AgentRoleId">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
+    <End Role="ReportVersions" Type="Self.ReportVersions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ReportVersions">
+        <PropertyRef Name="AgentRoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReportVersions_Sites_SiteId">
+    <End Role="Sites" Type="Self.Sites" Multiplicity="0..1" />
+    <End Role="ReportVersions" Type="Self.ReportVersions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sites">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ReportVersions">
+        <PropertyRef Name="SiteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SerialNumbers_ReportVersions_ReportVersionId">
+    <End Role="ReportVersions" Type="Self.ReportVersions" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SerialNumbers" Type="Self.SerialNumbers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReportVersions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SerialNumbers">
+        <PropertyRef Name="ReportVersionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sites_SiteRows_SiteRowId">
+    <End Role="SiteRows" Type="Self.SiteRows" Multiplicity="1" />
+    <End Role="Sites" Type="Self.Sites" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SiteRows">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sites">
+        <PropertyRef Name="SiteRowId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserGroupMembership_Groups_GroupId">
+    <End Role="Groups" Type="Self.Groups" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserGroupMembership" Type="Self.UserGroupMembership" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groups">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserGroupMembership">
+        <PropertyRef Name="GroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserGroupMembership_Users_UserName">
+    <End Role="Users" Type="Self.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserGroupMembership" Type="Self.UserGroupMembership" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserName" />
+      </Principal>
+      <Dependent Role="UserGroupMembership">
+        <PropertyRef Name="UserName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DPSModelStoreContainer">
+    <EntitySet Name="Attachments" EntityType="Self.Attachments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contacts" EntityType="Self.Contacts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Coordinates" EntityType="Self.Coordinates" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventImpacts" EntityType="Self.EventImpacts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExcavationWork" EntityType="Self.ExcavationWork" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Exemptions" EntityType="Self.Exemptions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FacilityLineInvolvements" EntityType="Self.FacilityLineInvolvements" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Folders" EntityType="Self.Folders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LocatingInformation" EntityType="Self.LocatingInformation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Reasons" EntityType="Self.Reasons" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Reports" EntityType="Self.Reports" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReportVersions" EntityType="Self.ReportVersions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SerialNumbers" EntityType="Self.SerialNumbers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SiteRows" EntityType="Self.SiteRows" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sites" EntityType="Self.Sites" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserGroupMembership" EntityType="Self.UserGroupMembership" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Attachments_ReportVersions_ReportVersionId" Association="Self.FK_Attachments_ReportVersions_ReportVersionId">
+      <End Role="ReportVersions" EntitySet="ReportVersions" />
+      <End Role="Attachments" EntitySet="Attachments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contacts_Roles_RoleId" Association="Self.FK_Contacts_Roles_RoleId">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Contacts" EntitySet="Contacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Coordinates_ReportVersions_ReportVersionId" Association="Self.FK_Coordinates_ReportVersions_ReportVersionId">
+      <End Role="ReportVersions" EntitySet="ReportVersions" />
+      <End Role="Coordinates" EntitySet="Coordinates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventImpacts_ReportVersions_ReportVersionId" Association="Self.FK_EventImpacts_ReportVersions_ReportVersionId">
+      <End Role="ReportVersions" EntitySet="ReportVersions" />
+      <End Role="EventImpacts" EntitySet="EventImpacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExcavationWork_Contacts_ExcavatorId" Association="Self.FK_ExcavationWork_Contacts_ExcavatorId">
+      <End Role="Contacts" EntitySet="Contacts" />
+      <End Role="ExcavationWork" EntitySet="ExcavationWork" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExcavationWork_ReportVersions_ReportVersionId" Association="Self.FK_ExcavationWork_ReportVersions_ReportVersionId">
+      <End Role="ReportVersions" EntitySet="ReportVersions" />
+      <End Role="ExcavationWork" EntitySet="ExcavationWork" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FacilityLineInvolvements_ReportVersions_ReportVersionId" Association="Self.FK_FacilityLineInvolvements_ReportVersions_ReportVersionId">
+      <End Role="ReportVersions" EntitySet="ReportVersions" />
+      <End Role="FacilityLineInvolvements" EntitySet="FacilityLineInvolvements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Folders_Users_OwnedByUserName" Association="Self.FK_Folders_Users_OwnedByUserName">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Folders" EntitySet="Folders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LocatingInformation_Contacts_LocatorId" Association="Self.FK_LocatingInformation_Contacts_LocatorId">
+      <End Role="Contacts" EntitySet="Contacts" />
+      <End Role="LocatingInformation" EntitySet="LocatingInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LocatingInformation_ReportVersions_ReportVersionId" Association="Self.FK_LocatingInformation_ReportVersions_ReportVersionId">
+      <End Role="ReportVersions" EntitySet="ReportVersions" />
+      <End Role="LocatingInformation" EntitySet="LocatingInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reasons_ReportVersions_ReportVersionId" Association="Self.FK_Reasons_ReportVersions_ReportVersionId">
+      <End Role="ReportVersions" EntitySet="ReportVersions" />
+      <End Role="Reasons" EntitySet="Reasons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reports_Folders_AssignedToUserFolderId" Association="Self.FK_Reports_Folders_AssignedToUserFolderId">
+      <End Role="Folders" EntitySet="Folders" />
+      <End Role="Reports" EntitySet="Reports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reports_Users_AssignedToUserName" Association="Self.FK_Reports_Users_AssignedToUserName">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Reports" EntitySet="Reports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReportVersions_Contacts_SubmitterId" Association="Self.FK_ReportVersions_Contacts_SubmitterId">
+      <End Role="Contacts" EntitySet="Contacts" />
+      <End Role="ReportVersions" EntitySet="ReportVersions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReportVersions_Exemptions_ExemptionId" Association="Self.FK_ReportVersions_Exemptions_ExemptionId">
+      <End Role="Exemptions" EntitySet="Exemptions" />
+      <End Role="ReportVersions" EntitySet="ReportVersions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReportVersions_Reports_ReportId" Association="Self.FK_ReportVersions_Reports_ReportId">
+      <End Role="Reports" EntitySet="Reports" />
+      <End Role="ReportVersions" EntitySet="ReportVersions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReportVersions_Roles_AgentRoleId" Association="Self.FK_ReportVersions_Roles_AgentRoleId">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="ReportVersions" EntitySet="ReportVersions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReportVersions_Sites_SiteId" Association="Self.FK_ReportVersions_Sites_SiteId">
+      <End Role="Sites" EntitySet="Sites" />
+      <End Role="ReportVersions" EntitySet="ReportVersions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SerialNumbers_ReportVersions_ReportVersionId" Association="Self.FK_SerialNumbers_ReportVersions_ReportVersionId">
+      <End Role="ReportVersions" EntitySet="ReportVersions" />
+      <End Role="SerialNumbers" EntitySet="SerialNumbers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sites_SiteRows_SiteRowId" Association="Self.FK_Sites_SiteRows_SiteRowId">
+      <End Role="SiteRows" EntitySet="SiteRows" />
+      <End Role="Sites" EntitySet="Sites" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserGroupMembership_Groups_GroupId" Association="Self.FK_UserGroupMembership_Groups_GroupId">
+      <End Role="Groups" EntitySet="Groups" />
+      <End Role="UserGroupMembership" EntitySet="UserGroupMembership" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserGroupMembership_Users_UserName" Association="Self.FK_UserGroupMembership_Users_UserName">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserGroupMembership" EntitySet="UserGroupMembership" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

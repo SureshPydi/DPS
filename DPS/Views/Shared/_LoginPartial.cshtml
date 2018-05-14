@@ -1,0 +1,43 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+    @Html.AntiForgeryToken()
+
+<ul class="nav navbar-nav navbar-right">
+    <li>
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="nav-menu" data-toggle="dropdown">
+                <span class='glyphicon glyphicon-user'></span>
+                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="@Url.Action("Index", "Manage")">Manage Profile</a></li>
+                <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+            </ul>
+        </div>
+
+        @*@Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })*@
+    </li>
+    @*<li>
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="nav-menu" data-toggle="dropdown">
+                <span class="glyphicon glyphicon-cog"></span>
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="nav-menu-items">
+                <li><a role="menuitem" tabindex="-1" href="@Url.Action("ManageGroups", "Manage")">Manage Groups</a></li>
+                <li><a role="menuitem" tabindex="-1" href="#">Force Error</a></li>
+            </ul>
+        </div>
+    </li>*@
+</ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}

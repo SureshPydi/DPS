@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DPSModelStoreContainer" CdmEntityContainer="DPSEntities">
+    <EntitySetMapping Name="Attachments">
+      <EntityTypeMapping TypeName="DPSModel.Attachment">
+        <MappingFragment StoreEntitySet="Attachments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ReportVersionId" ColumnName="ReportVersionId" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="MediaType" ColumnName="MediaType" />
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="DPSModel.Contact">
+        <MappingFragment StoreEntitySet="Contacts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="PhoenixContactID" ColumnName="PhoenixContactID" />
+          <ScalarProperty Name="ImisId" ColumnName="ImisId" />
+          <ScalarProperty Name="ImisCompanyId" ColumnName="ImisCompanyId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="WorkPhoneNumber" ColumnName="WorkPhoneNumber" />
+          <ScalarProperty Name="MobilePhoneNumber" ColumnName="MobilePhoneNumber" />
+          <ScalarProperty Name="HomePhoneNumber" ColumnName="HomePhoneNumber" />
+          <ScalarProperty Name="FaxNumber" ColumnName="FaxNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Coordinates">
+      <EntityTypeMapping TypeName="DPSModel.Coordinate">
+        <MappingFragment StoreEntitySet="Coordinates">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ReportVersionId" ColumnName="ReportVersionId" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventImpacts">
+      <EntityTypeMapping TypeName="DPSModel.EventImpact">
+        <MappingFragment StoreEntitySet="EventImpacts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ReportVersionId" ColumnName="ReportVersionId" />
+          <ScalarProperty Name="Was911Called" ColumnName="Was911Called" />
+          <ScalarProperty Name="NameOfPersonCalling911" ColumnName="NameOfPersonCalling911" />
+          <ScalarProperty Name="DidFireRespond" ColumnName="DidFireRespond" />
+          <ScalarProperty Name="DidPoliceRespond" ColumnName="DidPoliceRespond" />
+          <ScalarProperty Name="WasEvacuationNecessary" ColumnName="WasEvacuationNecessary" />
+          <ScalarProperty Name="HowManyEvacuated" ColumnName="HowManyEvacuated" />
+          <ScalarProperty Name="WasTrafficStopped" ColumnName="WasTrafficStopped" />
+          <ScalarProperty Name="WasServiceInterrupted" ColumnName="WasServiceInterrupted" />
+          <ScalarProperty Name="DurationOfServiceInterruption" ColumnName="DurationOfServiceInterruption" />
+          <ScalarProperty Name="NumberOfCustomersAffected" ColumnName="NumberOfCustomersAffected" />
+          <ScalarProperty Name="NumberOfFatalities" ColumnName="NumberOfFatalities" />
+          <ScalarProperty Name="NumberOfInjuries" ColumnName="NumberOfInjuries" />
+          <ScalarProperty Name="CostForDamageRepair" ColumnName="CostForDamageRepair" />
+          <ScalarProperty Name="WasOtherPropertyImpacted" ColumnName="WasOtherPropertyImpacted" />
+          <ScalarProperty Name="OtherPropertyImpacted" ColumnName="OtherPropertyImpacted" />
+          <ScalarProperty Name="CostOfOtherPropertyRepair" ColumnName="CostOfOtherPropertyRepair" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExcavationWorks">
+      <EntityTypeMapping TypeName="DPSModel.ExcavationWork">
+        <MappingFragment StoreEntitySet="ExcavationWork">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ReportVersionId" ColumnName="ReportVersionId" />
+          <ScalarProperty Name="ExcavatorId" ColumnName="ExcavatorId" />
+          <ScalarProperty Name="WorkBeginDate" ColumnName="WorkBeginDate" />
+          <ScalarProperty Name="WasWhiteLined" ColumnName="WasWhiteLined" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Method" ColumnName="Method" />
+          <ScalarProperty Name="Equipment" ColumnName="Equipment" />
+          <ScalarProperty Name="WorkBeingDoneFor" ColumnName="WorkBeingDoneFor" />
+          <ScalarProperty Name="KarlMethodCode" ColumnName="KarlMethodCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Exemptions">
+      <EntityTypeMapping TypeName="DPSModel.Exemption">
+        <MappingFragment StoreEntitySet="Exemptions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FacilityLineInvolvements">
+      <EntityTypeMapping TypeName="DPSModel.FacilityLineInvolvement">
+        <MappingFragment StoreEntitySet="FacilityLineInvolvements">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ReportVersionId" ColumnName="ReportVersionId" />
+          <ScalarProperty Name="FacilityType" ColumnName="FacilityType" />
+          <ScalarProperty Name="Facility" ColumnName="Facility" />
+          <ScalarProperty Name="PartOfJointTrench" ColumnName="PartOfJointTrench" />
+          <ScalarProperty Name="InvolvedCrossBore" ColumnName="InvolvedCrossBore" />
+          <ScalarProperty Name="MeasuredDepthFromGrade" ColumnName="MeasuredDepthFromGrade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Folders">
+      <EntityTypeMapping TypeName="DPSModel.Folder">
+        <MappingFragment StoreEntitySet="Folders">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="OwnedByUserName" ColumnName="OwnedByUserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Groups">
+      <EntityTypeMapping TypeName="DPSModel.Group">
+        <MappingFragment StoreEntitySet="Groups">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Permissions" ColumnName="Permissions" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LocatingInformations">
+      <EntityTypeMapping TypeName="DPSModel.LocatingInformation">
+        <MappingFragment StoreEntitySet="LocatingInformation">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ReportVersionId" ColumnName="ReportVersionId" />
+          <ScalarProperty Name="LocatorId" ColumnName="LocatorId" />
+          <ScalarProperty Name="FacilityLineLocatorType" ColumnName="FacilityLineLocatorType" />
+          <ScalarProperty Name="WasLineMarked" ColumnName="WasLineMarked" />
+          <ScalarProperty Name="TypesOfMarksPresent" ColumnName="TypesOfMarksPresent" />
+          <ScalarProperty Name="WereOffsetMarkingsUsed" ColumnName="WereOffsetMarkingsUsed" />
+          <ScalarProperty Name="ConditionOfMarks" ColumnName="ConditionOfMarks" />
+          <ScalarProperty Name="WereFacilitiesVisible" ColumnName="WereFacilitiesVisible" />
+          <ScalarProperty Name="WhatMeterEtc" ColumnName="WhatMeterEtc" />
+          <ScalarProperty Name="TypeOfLocatingEquipment" ColumnName="TypeOfLocatingEquipment" />
+          <ScalarProperty Name="LocatorUsedOperatorRecords" ColumnName="LocatorUsedOperatorRecords" />
+          <ScalarProperty Name="LocatorRecordType" ColumnName="LocatorRecordType" />
+          <ScalarProperty Name="MarkedAccordingToCGABestPractices" ColumnName="MarkedAccordingToCGABestPractices" />
+          <ScalarProperty Name="LocatorPaidForm408" ColumnName="LocatorPaidForm408" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reasons">
+      <EntityTypeMapping TypeName="DPSModel.Reason">
+        <MappingFragment StoreEntitySet="Reasons">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ReportVersionId" ColumnName="ReportVersionId" />
+          <ScalarProperty Name="IssueType" ColumnName="IssueType" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="EnforcementArea" ColumnName="EnforcementArea" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reports">
+      <EntityTypeMapping TypeName="DPSModel.Report">
+        <MappingFragment StoreEntitySet="Reports">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AssignedToUserName" ColumnName="AssignedToUserName" />
+          <ScalarProperty Name="AssignedToUserFolderId" ColumnName="AssignedToUserFolderId" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="IsArchived" ColumnName="IsArchived" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReportVersions">
+      <EntityTypeMapping TypeName="DPSModel.ReportVersion">
+        <MappingFragment StoreEntitySet="ReportVersions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ReportId" ColumnName="ReportId" />
+          <ScalarProperty Name="AgentRoleId" ColumnName="AgentRoleId" />
+          <ScalarProperty Name="ExemptionId" ColumnName="ExemptionId" />
+          <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+          <ScalarProperty Name="SubmitterId" ColumnName="SubmitterId" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="AllegedViolationDate" ColumnName="AllegedViolationDate" />
+          <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+          <ScalarProperty Name="DamageSerialNumber" ColumnName="DamageSerialNumber" />
+          <ScalarProperty Name="DamageVersion" ColumnName="DamageVersion" />
+          <ScalarProperty Name="OriginalSerialNumber" ColumnName="OriginalSerialNumber" />
+          <ScalarProperty Name="OriginalVersion" ColumnName="OriginalVersion" />
+          <ScalarProperty Name="IsAgent" ColumnName="IsAgent" />
+          <ScalarProperty Name="Summary" ColumnName="Summary" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="DPSModel.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PrimaryType" ColumnName="PrimaryType" />
+          <ScalarProperty Name="SubType" ColumnName="SubType" />
+          <ScalarProperty Name="QualifiedRoleCode" ColumnName="QualifiedRoleCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SerialNumbers">
+      <EntityTypeMapping TypeName="DPSModel.SerialNumber">
+        <MappingFragment StoreEntitySet="SerialNumbers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ReportVersionId" ColumnName="ReportVersionId" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SiteRows">
+      <EntityTypeMapping TypeName="DPSModel.SiteRow">
+        <MappingFragment StoreEntitySet="SiteRows">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PrimaryType" ColumnName="PrimaryType" />
+          <ScalarProperty Name="SubType" ColumnName="SubType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sites">
+      <EntityTypeMapping TypeName="DPSModel.Site">
+        <MappingFragment StoreEntitySet="Sites">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SiteRowId" ColumnName="SiteRowId" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Municipality" ColumnName="Municipality" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="County" ColumnName="County" />
+          <ScalarProperty Name="NearestIntersection" ColumnName="NearestIntersection" />
+          <ScalarProperty Name="SecondNearestIntersection" ColumnName="SecondNearestIntersection" />
+          <ScalarProperty Name="Ward" ColumnName="Ward" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="DPSModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="UserGroupMembership" TypeName="DPSModel.UserGroupMembership" StoreEntitySet="UserGroupMembership">
+      <EndProperty Name="Groups">
+        <ScalarProperty Name="Id" ColumnName="GroupId" />
+      </EndProperty>
+      <EndProperty Name="Users">
+        <ScalarProperty Name="UserName" ColumnName="UserName" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

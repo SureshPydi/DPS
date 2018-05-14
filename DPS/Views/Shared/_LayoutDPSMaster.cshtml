@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - @ViewBag.HomePageTitle</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <svg version="1.1"
+                         width="40" height="40" viewBox="0 0 1 1"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <g id="border">
+                            <rect x="0" y="0" rx="0.1" ry="0.1" width="1" height="1"
+                                  fill="#F7CF3C" stroke="none" />
+                        </g>
+                        <g id="shovel" transform="translate(0.08, 0.14), rotate(-45)">
+                            <rect id="handle"
+                                  x="0" y="0" width="0.08" height="0.26"
+                                  fill="black" />
+                            <path id="blade"
+                                  d="
+					M0 0
+					L0.04 0
+					C0.08 0.03, 0.1 0.03, 0.1 0
+					L0.225 0
+					C0.225 0.2, 0.225 0.4, 0 0.5
+					C-0.225 0.4, -0.225 0.2, -0.225 0
+					L-0.1 0
+					C-0.1 0.03, -0.08 0.03, -0.04 0
+					Z"
+                                  fill="black"
+                                  transform="translate(0.04, 0.25)" />
+                        </g>
+                        <g id="pipes">
+                            <path id="pipe1"
+                                  d="
+					M0 0
+					l0.6 0
+					l0.02 0.06
+					l-0.03 0.06
+					l0.01 0.08
+					l-0.6 0
+					z"
+                                  fill="black"
+                                  transform="translate(0.08, 0.72)" />
+                            <path id="pipe2"
+                                  d="
+					M0 0
+					l0.6 0
+					l0 0.2
+					l-0.6 0
+					l-0.01 -0.08
+					l0.03 -0.06
+					l-0.02 -0.06
+					z"
+                                  fill="black"
+                                  transform="translate(0.72, 0.68), rotate(-90)" />
+                        </g>
+                    </svg>
+                </a>
+            </div>
+            <div id="main-menu" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="@Url.Action("Index", "Home")">
+                            <i class="glyphicon glyphicon-tasks"></i>
+                            <span>
+                                Scheduled
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="navbar-text">
+                        <div class="loginUser">
+                            @Html.Partial("_LoginPartial")
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer class="footer navbar-fixed-bottom">
+                <div class="container">
+                    <p>&copy; @DateTime.Now.Year - Copy right message</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+</body>
+</html>
